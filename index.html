@@ -11,7 +11,8 @@
   <title>Character Manager js</title>
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
   <link rel="stylesheet" href="src/css/style.css">
 
 </head>
@@ -21,36 +22,47 @@
     <h1 class="heroTitle">Heroes in the Galaxy</h1>
     <p>In this spacious, mysterious galaxy, there are numerous super heroes , who have special powers to beat the alien intruders.</p>
     <p>Do you want to become a hero, too? Come create your own hero and join them.</p>
-    <a href="#" alt="#" class="button" onclick="document.getElementById('popUpId').style.display='block'">
+   
+    <button href="#" alt="#" class="button" onclick="document.getElementById('popUpId').style.display='block'">
       CREATE HERO
-    </a>
+    </button>
+
     <div class="pop-up" id="popUpId">
-      <form action="/action_page.php" method="post" class="pop-up-content animate">
+      <form action="#" method="post" class="pop-up-content animate">
         <span onclick="document.getElementById('popUpId').style.display='none'" class="close">&times;</span>
           <div class="container">
             <div class="create">
               <label for="hero">Hero</label>
-            <input type="text" placeholder="Enter Hero's Name"  required>
+            <input id="name" type="text" placeholder="Enter Hero's Name"  required>
 
             <label for="Alter-ego">Alter-ego</label>
-            <input type="text" placeholder="Enter Alter-ego" required>
+            <input id="description" type="text" placeholder="Enter Alter-ego" required>
 
             <label for="powers">Super Powers</label>
             <textarea rows="5" cols="40" placeholder="Enter Hero's Super Powers" required></textarea>
             </div>
             <div class="avatar">
-              <p><input type="file"  accept="image/*" name="image" id="file"  onchange="uploadAvatar(event)" style="display: none;"></p>
+              
+              <p><input id="image" type="file"  accept="image/*" name="image" onchange="uploadAvatar(event)" style="display: none;"></p>
               <p><label for="file" >Click to upload Hero Avatar</label></p>
+              
+              <button id="BtnUP" value="upload">upload</button>
               <p><img id="output" /></p> 
             </div>            
           </div>  
         <a href="index.html" alt="#" class="button">CREATE!</a>        
       </form>
     </div>
+
   </div>
+
+
+
+
+  <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
   
-  <div class="flex-container">
-    <template id="temp">
+  <!--<div class="flex-container">
+    <template id="tpl">
       <li class="hero">
         <h2 class="title">
           <strong class="name"></strong>
@@ -58,13 +70,31 @@
       </h2>
       <p class="powers"></p>
       </li>
+    </template>-->
+    
+    <template id ="tpl">
+    
+      <div class="card h-100">
+        <img class="card-img-top" src="" alt="">
+        <div class="card-body">
+          <h4 class="card-title"></h4>
+          <p class="card-text"></p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Find Out More!</a>
+        </div>
     </template>
-    <div class="carte">1</div>
+
+    <div id="target">
+      <!--emplacement des cards -->
+    </div>
+
+    <!--<div class="carte">1</div>
     <div class="carte">2</div>
     <div class="carte">3</div>
     <div class="carte">1</div>
     <div class="carte">2</div>
-    <div class="carte">3</div>
+    <div class="carte">3</div>-->
   </div> 
   
   <script>
@@ -73,6 +103,7 @@
       avatar.src = URL.createObjectURL(event.target.files[0]);
     };
     </script>
+    <script src="src/script.js"></script>
 </body>
 
 </html>
