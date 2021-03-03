@@ -29,7 +29,7 @@
         <span onclick="document.getElementById('popUpId').style.display='none'" class="close">&times;</span>
           <div class="container">
             <div class="create">
-              <label for="hero">Hero</label>
+            <label for="hero" >Hero</label>
             <input type="text" placeholder="Enter Hero's Name"  required>
 
             <label for="Alter-ego">Alter-ego</label>
@@ -41,10 +41,11 @@
             <div class="avatar">
               <p><input type="file"  accept="image/*" name="image" id="file"  onchange="uploadAvatar(event)" style="display: none;"></p>
               <p><label for="file" >Click to upload Hero Avatar</label></p>
+
               <p><img id="output" /></p> 
             </div>            
-          </div>  
-        <a href="index.html" alt="#" class="button">CREATE!</a>        
+          </div> 
+            <a href="index.html" alt="#" class="button">CREATE!</a>               
       </form>
     </div>
   </div>
@@ -72,7 +73,7 @@
       var avatar = document.getElementById('output');
       avatar.src = URL.createObjectURL(event.target.files[0]);
     };
-    </script>
+  </script>
 </body>
 
 </html>
