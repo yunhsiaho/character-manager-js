@@ -26,21 +26,25 @@
     </a>
     <div class="pop-up" id="popUpId">
       <form action="/action_page.php" method="post" class="pop-up-content animate">
-        <div class="container">
-          <span onclick="document.getElementById('popUpId').style.display='none'" class="close">&times;</span>
+        <span onclick="document.getElementById('popUpId').style.display='none'" class="close">&times;</span>
           <div class="container">
-          <label for="hero">Hero</label>
-          <input type="text" placeholder="Enter Hero's Name"  required>
+            <div class="create">
+              <label for="hero">Hero</label>
+            <input type="text" placeholder="Enter Hero's Name"  required>
 
-          <label for="Alter-ego">Alter-ego</label>
-          <input type="text" placeholder="Enter Alter-ego" required>
+            <label for="Alter-ego">Alter-ego</label>
+            <input type="text" placeholder="Enter Alter-ego" required>
 
-          <label for="powers">Super Powers</label>
-          <textarea rows="5" cols="80" placeholder="Enter Hero's Super Powers" required></textarea>
-
-          <a href="index.html" alt="#" class="button">CREATE!</a>
-          </div>
-        </div>
+            <label for="powers">Super Powers</label>
+            <textarea rows="5" cols="40" placeholder="Enter Hero's Super Powers" required></textarea>
+            </div>
+            <div class="avatar">
+              <p><input type="file"  accept="image/*" name="image" id="file"  onchange="uploadAvatar(event)" style="display: none;"></p>
+              <p><label for="file" >Click to upload Hero Avatar</label></p>
+              <p><img id="output" /></p> 
+            </div>            
+          </div>  
+        <a href="index.html" alt="#" class="button">CREATE!</a>        
       </form>
     </div>
   </div>
@@ -63,6 +67,12 @@
     <div class="carte">3</div>
   </div> 
   
+  <script>
+    var uploadAvatar = (event)=> {
+      var avatar = document.getElementById('output');
+      avatar.src = URL.createObjectURL(event.target.files[0]);
+    };
+    </script>
 </body>
 
 </html>
