@@ -22,14 +22,44 @@ document.querySelector(".btn").addEventListener("click", async () =>{
         clone.querySelector(".card-description").innerHTML = description;
         
 
-        target.appendChild(clone);    
+        target.appendChild(clone); 
+        
+        //delete a character
+        document.querySelector(".button-delete").addEventListener("click", async () =>{
+        
+           // try{ 
+                const reponse = await fetch(`https://character-database.becode.xyz/characters${id}`,{
+                    method: "DELETE",
+                    header : {
+                        "content-Type": "application/json",
+                    },
+                });
+
+                const deletedChar = await response.json();
+                console.log(deletedChar);
+
+          /*  }catch (err){
+                console.error(`Unknown character whith id:${id}`);
+            }*/
+
+           
+
+            
+        
+    
+        });
+        //edit a character
         
     });
+   
+
+    
+    
 
 });
 
 
-//add a character test
+//add a character
 const modal = ()  => {
 
    // document.querySelector(".button-modal").addEventListener("click",  () =>{
@@ -54,7 +84,7 @@ const modal = ()  => {
             //const [name, shortDescription, description,id] = values;
             
         
-            const response = await fetch('https://character-database.becode.xyz/characters', {
+            const response = await fetch("https://character-database.becode.xyz/characters", {
                 method: "POST",
                 headers: {
                         "Content-Type": "application/json",
@@ -66,13 +96,11 @@ const modal = ()  => {
                    
                 })
             })
-
-        
-
          })
 
     //});
 }
 
 modal();
+
 
