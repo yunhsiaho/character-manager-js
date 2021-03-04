@@ -1,4 +1,5 @@
 //nom de la const API est tjrs response
+//const response = "https://character-database.becode.xyz/characters"
 
 const tpl = document.querySelector("#tpl") ;
 const target = document.querySelector("#target");
@@ -31,8 +32,6 @@ document.querySelector(".btn").addEventListener("click", async () =>{
 //add a character test
 const modal = ()  => {
 
-
-
    // document.querySelector(".button-modal").addEventListener("click",  () =>{
 
         document.querySelector(".button-create").addEventListener("click", async () =>{
@@ -55,18 +54,25 @@ const modal = ()  => {
             //const [name, shortDescription, description,id] = values;
             
         
-            const response = await fetch(`https://character-database.becode.xyz/characters`,{
+            const response = await fetch('https://character-database.becode.xyz/characters', {
                 method: "POST",
-                headers : {
-                    "Content-Type": "application/json",
+                headers: {
+                        "Content-Type": "application/json",
                 },
-                body: JSON.stringify( {
-                    name, shortDescription ,description, 
+                body: JSON.stringify({
+                    name: name,
+                    shortDescription: shortDescription,
+                    description : description,
+                   
                 })
             })
+
+        
+
          })
-      
+
     //});
 }
 
 modal();
+
