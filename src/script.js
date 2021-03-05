@@ -80,7 +80,7 @@ document.querySelector(".btn").addEventListener("click", async () =>{
 
                 try{
                     const editreponse = await fetch(`https://character-database.becode.xyz/characters/${id}`,{
-                            method: "GET",
+                            method: "PUT",
                             header : {
                                 "content-Type": "application/json",
                             },
