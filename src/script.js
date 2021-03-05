@@ -3,10 +3,12 @@
 
 const tpl = document.querySelector("#tpl") ;
 const target = document.querySelector("#target");
+let idArray = [];
+let image = "";
 
 document.querySelector(".btn").addEventListener("click", async () =>{
     
-   
+
     const response = await fetch("https://character-database.becode.xyz/characters");
     const character = await response.json();
 
@@ -21,50 +23,69 @@ document.querySelector(".btn").addEventListener("click", async () =>{
         clone.querySelector(".card-shortDescription").innerHTML = shortDescription;
         clone.querySelector(".card-description").innerHTML = description;
         
-
-        target.appendChild(clone); 
         
-        //delete a character
-        document.querySelector(".button-delete").addEventListener("click", async () =>{
+
+        target.appendChild(clone);
+
+        //Tableau avec les id des card
         
-           // try{ 
-                const reponse = await fetch(`https://character-database.becode.xyz/characters${id}`,{
-                    method: "DELETE",
-                    header : {
-                        "content-Type": "application/json",
-                    },
-                });
+       
+        idArray.push(id);
+        console.log(idArray)
 
-                const deletedChar = await response.json();
-                console.log(deletedChar);
+        
 
-          /*  }catch (err){
-                console.error(`Unknown character whith id:${id}`);
-            }*/
-
-           
-
+        //---------------------delete a character---------------------------
+        
+        
+        Array.from(document.querySelectorAll(".button-delete")).forEach((btn, i) => { // tableau des button /!\
             
+            btn.addEventListener("click", async () =>{
+
+                const id = idArray[i];
+                console.log(id);
+                
+                        
+                try{ 
+                    const delreponse = await fetch(`https://character-database.becode.xyz/characters/${id}`,{
+                        method: "DELETE",
+                        header : {
+                            "content-Type": "application/json",
+                        },
+                    });
+            
+                        const character = await response.json();
+                    
+                
+                }catch (err){
+                    console.error(`Unknown character whith id:${id}`);
+                } 
+            }) 
+                    
+        }); 
         
-    
-        });
-        //edit a character
+        //------------------------edit a character--------------------------
+        //document.querySelector(".button-edit").addEventListener("click", async () =>{});
         
     });
-   
 
     
     
+
+    
+   
+     
 
 });
 
 
-//add a character
+//------------------------------add a character-------------------------------
 const modal = ()  => {
 
    // document.querySelector(".button-modal").addEventListener("click",  () =>{
 
-        document.querySelector(".button-create").addEventListener("click", async () =>{
+        document.querySelector(".button-create").addEventListener("click",
+        async () =>{
 
             const name = document.getElementById("name").value;
             console.log(name);
@@ -74,12 +95,8 @@ const modal = ()  => {
     
             const description = document.getElementById("description").value;
             console.log(description);
-            
-            /*const imageInput = document.getElementByClass("image");
-            const image = imageInput.files[0];
-            console.log(image);
-            // ("src", "data:image/png;base64," +image);   converter img    */ 
-           
+
+
         
             //const [name, shortDescription, description,id] = values;
             
@@ -93,6 +110,8 @@ const modal = ()  => {
                     name: name,
                     shortDescription: shortDescription,
                     description : description,
+                    image,
+            
                    
                 })
             })
@@ -104,3 +123,12 @@ const modal = ()  => {
 modal();
 
 
+
+document.querySelector("#file").addEventListener("change",(e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+        image = reader.result.replace('data:', '').replace(/^.+,/, '');
+    };
+    reader.readAsDataURL(file)
+});

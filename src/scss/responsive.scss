@@ -1,8 +1,4 @@
 
-@import "body";
-
-
-
 //responsive phone
 @media only screen and (max-width: 400px) {
     body{
@@ -62,44 +58,17 @@
                 }            
             }            
         }
+        
         .flex-container{
-            .carte{
-            width:96%;
-            li{        //     
-            width:100%;
-            height:auto;
-            margin:1%;
-            padding:1%;
-            img{
-                width:30vw;
-                height:30vw;
-            }
-            }
-            .card-body{             
-                width:60%;
-                padding:2%;
-                .card-name{
-                    font-size: 6vw;
-                }
-                .card-shortDescription{
-                    font-size: 5vw;
-                }
-                .card-description{
-                    font-size: 5vw;           
-                }
-                .buttonGroup{        //            
-                    margin-top: 1vw;
-                    margin-bottom:1vw;
-                    .button{
-                        padding:0.5vw;
-                        width:45%;            
-                        font-size: 4.5vw;
-                    }        
-                    @include button-function; 
-                }
-                }
-            }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+        .carte{
+            width:70%;
+            margin-top: 3%;
+        }
+        
     }
     
 }
@@ -165,42 +134,15 @@
             }            
         }        
         .flex-container{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
             .carte{
-            width:90%;
-            li{        //     
-            width:100%;
-            height:auto;
-            margin:1%;
-            padding:1%;
-            img{
-                width:25vw;
-                height:25vw;
-            }
-            }
-            .card-body{             
-                width:65%;
-                padding:2%;
-                .card-name{
-                    font-size: 6vw;
-                }
-                .card-shortDescription{
-                    font-size: 3vw;
-                }
-                .card-description{
-                    font-size: 3vw;           
-                }
-                .buttonGroup{        //            
-                    margin-top: 1vw;
-                    margin-bottom:1vw;
-                    .button{
-                        padding:0.5vw;
-                        width:40%;            
-                        font-size: 3vw;
-                    }        
-                    @include button-function; 
-                }
-                }
+                width:40%;
+                margin-top: 3%;
             }
         }
+        
     }
+    
 }

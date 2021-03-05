@@ -47,7 +47,7 @@
               <p><img id="output" /></p> 
             </div>            
           </div> 
-            <a href="#" alt="#" class="button button-create" >CREATE!</a>               
+            <a href="#" alt="#" class="button button-create" onclick="document.getElementById('popUpId').style.display='none'">CREATE!</a>               
       </form>
     </div>
   </div>
@@ -58,23 +58,22 @@
 
     <template id="tpl">
       <li class="theCard">
-        <img class="card-img" src="" alt="">
-      <div class="card-body">
-        <h4 class="card-name"></h4>
-        <p class="card-shortDescription"></p>
-        <div class="card-description"></div>
-      </div>
-      <button class="button button-edit">Edit</button>
-      <button class="button button-delete">Delete</button>
+          <img class="card-img" src="" alt="">
+        <div class="card-body">
+          <h4 class="card-name"></h4>
+          <p class="card-shortDescription"></p>
+          <div class="card-description"></div> 
+          <div class="buttonGroup">
+            <button class="button button-edit">Edit</button>
+            <button class="button button-delete">Delete</button>
+          </div>           
+        </div> 
+        <!-- div change!!!!!!!!!!!!! -->
       </li>
     </template>
 
     <div class="carte" id="target"></div>
-    <!--<div class="carte">2</div>
-    <div class="carte">3</div>
-    <div class="carte">1</div>
-    <div class="carte">2</div>
-    <div class="carte">3</div>-->
+
   </div> 
   
   <script>
