@@ -22,8 +22,8 @@ The root endpoint of the API is the following : ![https://character-database.bec
 ![alt text](https://raw.githubusercontent.com/Josue-U/character-manager-js/hsia/img/screenshot.png "Cool")
 
 # Who make this master piece?
-* [Josue](https://github.com/Josue-U)
-* [Hsia](https://github.com/yunhsiaho)
+* [Josue's Github](https://github.com/Josue-U)
+* [Hsia's Github](https://github.com/yunhsiaho)
 
 
 
