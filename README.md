@@ -7,7 +7,7 @@ A Comics fan client would like to manage his favorites characters on a dashboard
 
 In this project, we use the Character Database API to make/fetch a Character Manager. This project ask us to perform HTTP Request.
 
-The root endpoint of the API is the following : ![link here](https://character-database.becode.xyz/ "API")
+The root endpoint of the API is the following : ![https://character-database.becode.xyz/](https://character-database.becode.xyz/ )
 
 # Check our project(link)
 [Hsia & Josué page](https://josue-u.github.io/character-manager-js/)
@@ -19,7 +19,7 @@ The root endpoint of the API is the following : ![link here](https://character-d
  
 # Here comes a screenshot
 
-![alt text](https://github.com/Tselawi/project-supro/blob/development/screenshot.png "on est fort!")
+![alt text](https://raw.githubusercontent.com/Josue-U/character-manager-js/hsia/img/screenshot.png "Cool")
 
 # Who make this master piece?
 * [Josue](https://github.com/Josue-U)
