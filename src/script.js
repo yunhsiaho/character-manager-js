@@ -12,7 +12,7 @@ document.querySelector(".btn").addEventListener("click", async () =>{
     const response = await fetch("https://character-database.becode.xyz/characters");
     const character = await response.json();
 
-    console.log(character);
+    //console.log(character);
 
     character.forEach(({name, shortDescription, image, description, id}) => { 
 
@@ -22,36 +22,29 @@ document.querySelector(".btn").addEventListener("click", async () =>{
         clone.querySelector(".card-img").setAttribute("src", "data:image/png;base64," +image);
         clone.querySelector(".card-shortDescription").innerHTML = shortDescription;
         clone.querySelector(".card-description").innerHTML = description;
-
-        Array.from(document.querySelectorAll(".button-delete")).forEach((btn, i) => {
-            clone.querySelector(".modal-name").innerHTML = name;
-            clone.querySelector(".card-img").setAttribute("src", "data:image/png;base64," +image);
-            clone.querySelector(".modal-shortDescription").innerHTML = shortDescription;
-            clone.querySelector(".modal-description").innerHTML = description;
-        })
-       
+        
+        
 
         target.appendChild(clone);
 
-        //Tableau avec les id des card
-
-
+        
+       
         idArray.push(id);
-        console.log(idArray)
+        //console.log(idArray)
 
-
+        
 
         //---------------------delete a character---------------------------
-
-
-        Array.from(document.querySelectorAll(".button-delete")).forEach((btn, i) => { // tableau des button /!\
-
+        
+        
+        Array.from(document.querySelectorAll(".button-delete")).forEach((btn, i) => { // tableau des button /!\ pour que tout les btn soient actif
+            
             btn.addEventListener("click", async () =>{
 
                 const id = idArray[i];
-                console.log(id);
-
-
+                //console.log(id);
+                
+                        
                 try{ 
                     const delreponse = await fetch(`https://character-database.becode.xyz/characters/${id}`,{
                         method: "DELETE",
@@ -59,28 +52,55 @@ document.querySelector(".btn").addEventListener("click", async () =>{
                             "content-Type": "application/json",
                         },
                     });
-
+            
                         const character = await response.json();
-
-
+                    
+                
                 }catch (err){
                     console.error(`Unknown character whith id:${id}`);
                 } 
             }) 
-
+                    
         }); 
-
+        
         //------------------------edit a character--------------------------
-        //document.querySelector(".button-edit").addEventListener("click", async () =>{});
+        Array.from(document.querySelectorAll(".button-edit")).forEach((btn, i) => {
 
+            btn.addEventListener("click", async () =>{
+
+                const id = idArray[i];
+
+                //console.log("button edit-test");
+
+                //ouvrir un modal
+                
+                document.querySelector("#popUpId").style.display = "flex";
+            
+                
+
+                try{
+                    const editreponse = await fetch(`https://character-database.becode.xyz/characters/${id}`,{
+                            method: "PUT",
+                            header : {
+                                "content-Type": "application/json",
+                            },
+                    });
+
+                    const character = await response.json();
+
+                
+                }catch (err){
+                    console.error(`Unknown character whith id:${id}`);
+                } 
+                
+             
+               
+            })
+            
+        });
+        
     });
-
-
-
-
-
-
-
+        
 
 });
 
@@ -94,13 +114,14 @@ const modal = ()  => {
         async () =>{
 
             const name = document.getElementById("name").value;
-            console.log(name);
-
+            //console.log(name);
+    
             const shortDescription = document.getElementById("shortDescription").value;
-            console.log(shortDescription);
-
+            //console.log(shortDescription);
+    
             const description = document.getElementById("description").value;
-            console.log(description);
+            //console.log(description);
+
 
 
 
@@ -117,8 +138,8 @@ const modal = ()  => {
                     shortDescription: shortDescription,
                     description : description,
                     image,
-
-
+            
+                   
                 })
             })
          })
