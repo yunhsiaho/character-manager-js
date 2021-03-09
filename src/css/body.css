@@ -229,7 +229,6 @@ body {
       flex-wrap: wrap;
       justify-content: center; }
       body .flex-container .carte li {
-        border: 1px solid white;
         box-shadow: 2px 2px 3px #7d0381;
         background-color: #02111d;
         border-radius: 5px;
