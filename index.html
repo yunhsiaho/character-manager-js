@@ -10,129 +10,81 @@
 
   <title>Character Manager js</title>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-  <!-- Custom styles for this template -->
-  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="src/css/style.css">
 
 </head>
 
 <body>
+  <div class="top">
+    <h1 class="heroTitle">Heroes in the Galaxy</h1>
+    <p>In this spacious, mysterious galaxy, there are numerous super heroes , who have special powers to beat the alien intruders.</p>
+    <p>Do you want to become a hero, too? Come create your own hero and join them.</p>
+    
+    <a href="#" alt="#" class="button button-modal" onclick="document.getElementById('popUpId').style.display='block'">
+      CREATE HERO
+    </a>
+    <div class="pop-up" id="popUpId">
+      <form action="/action_page.php" method="post" class="pop-up-content animate">
+        <span onclick="document.getElementById('popUpId').style.display='none'" class="close">&times;</span>
+          <div class="container">
+            <div class="create">
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
+            <label  for="name" >Name</label>
+            <input id="name" type="text" placeholder="Enter Hero's Name"  required>
+
+            <label for="short Description">Short Description</label>
+            <input id="shortDescription"  type="text" placeholder="Enter Short Description" required>
+
+            <label  for="powers">Description</label>
+            <textarea id="description" rows="5" cols="40" placeholder="Enter Hero's Description" required></textarea>
+            </div>
+            <div class="avatar">
+              <p><input class="image" type="file"  accept="image/*" name="image" id="file"  onchange="uploadAvatar(event)" style="display: none;"></p>
+              <p><label for="file" >Click to upload Hero Avatar</label></p>
+
+              <p><img id="output" /></p> 
+            </div>            
+          </div> 
+            <a href="#" alt="#" class="button button-create" onclick="document.getElementById('popUpId').style.display='none'">CREATE!</a>               
+      </form>
     </div>
-  </nav>
-
-  <!-- Page Content -->
-  <div class="container">
-
-    <!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
-      <h1 class="display-3">A Warm Welcome!</h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-      <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
-    </header>
-
-    <!-- Page Features -->
-    <div class="row text-center">
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <!-- /.row -->
-
   </div>
-  <!-- /.container -->
 
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src=""></script>
-
-  <!--SOURCES : Special thanks to "https://github.com/startbootstrap/startbootstrap-heroic-features" for this template-->
+  <button class="btn">show-cards</button>
   
-
+  <div class="flex-container">
+    <template id="tpl">
+      <li class="theCard" onclick="document.getElementById('bigModal').style.display='block'">
+        <img class="card-img" src="" alt="">
+      <div class="card-body">
+        <h4 class="card-name"></h4>
+        <p class="card-shortDescription"></p>
+        <div class="card-description"></div> 
+        <div class="buttonGroup">
+          <button class="button button-edit">Edit</button>
+          <button class="button button-delete">Delete</button>
+        </div>
+      </div> 
+      <div class="bigModal" id="bigModal" style="display:none;">
+        <form class="bigModal-content">
+          <img class="modal-img" src="" alt="">
+      <div class="modal-body">
+        <h4 class="modal-name"></h4>
+        <p class="modal-shortDescription"></p>
+        <div class="modal-description"></div>         
+      </div> 
+        </form>
+        </div>
+    </li>      
+    </template>
+    <div class="carte" id="target"></div>
+  </div> 
+  
+    
+  <script src="src/extra.js"></script>
+  <script src="src/script.js"></script>
 </body>
 
 </html>
