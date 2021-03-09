@@ -159,3 +159,8 @@ document.querySelector("#file").addEventListener("change",(e) => {
     };
     reader.readAsDataURL(file)
 });
+
+var uploadAvatar = (event)=> {
+  var avatar = document.getElementById('output');
+  avatar.src = URL.createObjectURL(event.target.files[0]);
+};
