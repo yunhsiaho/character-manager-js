@@ -10,7 +10,7 @@ In this project, we use the Character Database API to make/fetch a Character Man
 The root endpoint of the API is the following : ![https://character-database.becode.xyz/](https://character-database.becode.xyz/ )
 
 # Check our project(link)
-[Hsia & Josué page](https://josue-u.github.io/character-manager-js/)
+[Hsia & Josué page](https://yunhsiaho.github.io/character-manager-js/)
 
 # The languages used
  * HTML
