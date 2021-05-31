@@ -1,5 +1,8 @@
 # Character-manager-js
+update:
+We've rearranged the code a bit to make it cleaner. Your can find the new repo![here](https://github.com/yunhsiaho/modern-js-application)!
 
+# Intro
 Character manager is a group project made by Josue and Hsia. It's a challenge asigned by BECODE LIEGE code training center. We had been working on this from 01/03/2021-05/03/2021 to learn about the teamworking pattern and consolidate our knowledges in the codes we've learned.
 
 # The mission
